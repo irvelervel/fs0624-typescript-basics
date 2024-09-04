@@ -119,3 +119,41 @@ const teacher2 = {
 };
 // in alternativa si potrebbe aggiungere region successivamente
 // teacher2.region: 'FVG',
+const arrayOfTeachers = [];
+arrayOfTeachers.push(teacher1, teacher2);
+arrayOfTeachers.forEach((t) => {
+    console.log(t.lastName.length);
+});
+const gigio = {
+    height: 170,
+    eyeColor: 'azure',
+    feetNumber: 2,
+    languagesKnown: ['JS', 'TS'],
+};
+const address1 = {
+    cityName: 'Roma',
+    street: 'Via del Campidoglio',
+    civicNumber: 10,
+    zipCode: '00142',
+    area: 'Lazio',
+};
+const address2 = {
+    cityName: 'Westerville',
+    street: '1st St',
+    civicNumber: 0,
+    zipCode: '68814',
+    area: {
+        state: 'NE',
+        country: 'USA',
+    },
+};
+const address3 = {
+    cityName: 'Westerville',
+    street: '1st St',
+    civicNumber: 0,
+    zipCode: '68814',
+    area: {
+        state: 'NE',
+        neighborhood: 'USA',
+    },
+};

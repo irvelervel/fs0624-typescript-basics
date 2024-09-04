@@ -168,3 +168,78 @@ const teacher2: EpicodeTeacher = {
 
 // in alternativa si potrebbe aggiungere region successivamente
 // teacher2.region: 'FVG',
+
+const arrayOfTeachers: EpicodeTeacher[] = []
+arrayOfTeachers.push(teacher1, teacher2)
+
+arrayOfTeachers.forEach((t) => {
+  console.log(t.lastName.length)
+})
+
+// ESTENSIONE DI INTERFACCE
+
+interface HumanBeing {
+  height: number
+  eyeColor: string
+  feetNumber: number
+}
+
+interface Developer extends HumanBeing {
+  languagesKnown: string[]
+}
+
+const gigio: Developer = {
+  height: 170,
+  eyeColor: 'azure',
+  feetNumber: 2,
+  languagesKnown: ['JS', 'TS'],
+}
+
+// BOSS FINALE: GENERICS
+// Un GENERIC è un TIPO passato come PARAMETRO per un'INTERFACCIA
+// nella definizione di interfacce si può definire un GENERIC e lo si può
+// assegnare come TIPO per una o più proprietà
+// questo si fa per rendere più GENERICA un'interfaccia
+
+interface Address<A> {
+  street: string
+  civicNumber: number
+  zipCode: string
+  cityName: string
+  area: A
+}
+
+const address1: Address<string> = {
+  cityName: 'Roma',
+  street: 'Via del Campidoglio',
+  civicNumber: 10,
+  zipCode: '00142',
+  area: 'Lazio',
+}
+
+interface AmericanArea {
+  state: string
+  country: string
+}
+
+const address2: Address<AmericanArea> = {
+  cityName: 'Westerville',
+  street: '1st St',
+  civicNumber: 0,
+  zipCode: '68814',
+  area: {
+    state: 'NE',
+    country: 'USA',
+  },
+}
+
+const address3: Address<{ state: string; neighborhood: string }> = {
+  cityName: 'Westerville',
+  street: '1st St',
+  civicNumber: 0,
+  zipCode: '68814',
+  area: {
+    state: 'NE',
+    neighborhood: 'USA',
+  },
+}
