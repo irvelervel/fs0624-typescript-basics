@@ -81,3 +81,90 @@ console.log(addition(3, 4))
 console.log(addition(4))
 
 console.log(addition(4))
+
+// TYPE UNION
+let test: string | number = 50
+test = 'Stefano'
+test = 100
+
+let test2: string | string[] | undefined = 'ciao'
+test2 = undefined
+
+// TYPE ALIAS
+type CustomType = string | string[] | undefined
+
+let test3: CustomType = undefined
+test3 = ['ciao', 'array', 'di', 'stringhe']
+
+// STRUTTURE DATI COMPLESSE
+// ARRAY
+let arrayofNames = ['Antonio', 'Alessio', 'Sara']
+let arrayOfNumbers = [2, 6, 78, 34]
+let mixedArray = [true, 'ciao', 100] // si usano poco
+
+let arr1: string[] = ['uno', 'ciao']
+let arr2: Array<string> = ['due', 'arrivederci']
+// due modi per dichiarare un array di stringhe
+// il secondo utilizza le <> -> TYPE ARGUMENT
+
+let arr3: CustomType[] = [undefined, 'ciao', ['1', '2'], 'aldo', ['aldo']]
+
+arr1.push('100')
+// newArrayOfNames sarà ottenuto filtrando arrayOfNames per solamente i nomi
+// che cominciano con la lettera 'a', maiuscola o minuscola
+const newArrayofNames = arrayofNames.filter((name) => {
+  return name.charAt(0).toLowerCase() === 'a'
+})
+console.log(newArrayofNames) // ['Antonio', 'Alessio']
+
+newArrayofNames.forEach((name) => console.log(name.toUpperCase()))
+
+// TUPLE
+// una Tupla è un tipo per un array in cui si specificano anche le posizioni
+
+let mixed1: (string | number)[] = [50, 23, 45, 'ciao', 'aldo', 100]
+let tuple1: [string, string, number, string] = ['ciao', 'stefano', 34, '']
+
+// OGGETTI
+const teacher = {
+  firstName: 'Stefano',
+  lastName: 'Casasola',
+  modules: ['U3'],
+}
+
+teacher.firstName = 'Dario'
+teacher.lastName = 'Del Giudice'
+teacher.modules = ['U1']
+
+// teacher.firstName = 100 // :)
+
+console.log(teacher.modules.length) // 1
+
+// teacher.region = 'FVG' // :(
+
+// INTERFACES
+// un'interfaccia è una struttura dati che definisce le proprietà di un oggetto
+
+interface EpicodeTeacher {
+  // qui dentro andiamo a definire la STRUTTURA di un oggetto
+  firstName: string // obbligatoria
+  lastName: string // obbligatoria
+  modules: string[] // obbligatorio
+  region?: string // opzionale
+}
+
+const teacher1: EpicodeTeacher = {
+  firstName: 'Dario',
+  lastName: 'Del Giudice',
+  modules: ['U1'],
+}
+
+const teacher2: EpicodeTeacher = {
+  firstName: 'Stefano',
+  lastName: 'Casasola',
+  modules: ['U3'],
+  region: 'FVG',
+}
+
+// in alternativa si potrebbe aggiungere region successivamente
+// teacher2.region: 'FVG',
